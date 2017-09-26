@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.Math;
 //import java.util.MismatchException;
 
 public class GuessingGame {
@@ -15,12 +16,17 @@ public class GuessingGame {
 		
 		int guess = 0;
 		int rngNum = (int)(Math.random()*11 - 1);
-		System.out.println(rngNum);
 		Scanner input = new Scanner(System.in);
 		System.out.println("What number am I thinking 1-10?");
 		guess = input.nextInt();
 		while (guess != rngNum) {
-			System.out.println("Guess, again");
+			if (guess < rngNum) {
+				System.out.println("Too low");
+			}
+			if (guess > rngNum) {
+				System.out.println("Too high");
+			}
+			
 			guess = input.nextInt();
 		}
 		System.out.println("cool");
